@@ -149,6 +149,7 @@ window.addEvent('load', function() {
         $("active_filter").removeClass("selectedFilter");
         $("inactive_filter").removeClass("selectedFilter");
         $("errored_filter").removeClass("selectedFilter");
+        $("notracker_filter").removeClass("selectedFilter");
         $(f + "_filter").addClass("selectedFilter");
         selected_filter = f;
         localStorage.setItem('selected_filter', f);
@@ -273,6 +274,7 @@ window.addEvent('load', function() {
         updateFilter('active', 'QBT_TR(Active (%1))QBT_TR[CONTEXT=StatusFilterWidget]');
         updateFilter('inactive', 'QBT_TR(Inactive (%1))QBT_TR[CONTEXT=StatusFilterWidget]');
         updateFilter('errored', 'QBT_TR(Errored (%1))QBT_TR[CONTEXT=StatusFilterWidget]');
+        updateFilter('notracker', 'No tracker (%1)');
     };
 
     var updateCategoryList = function() {

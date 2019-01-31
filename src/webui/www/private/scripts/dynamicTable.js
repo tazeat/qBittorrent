@@ -1177,6 +1177,9 @@ var TorrentsTable = new Class({
                 if (r == inactive)
                     return false;
                 break;
+            case 'notracker':
+                if (row.full_data.tracker != '') return false;
+                break;
             case 'errored':
                 if (state != 'error' && state != "unknown" && state != "missingFiles")
                     return false;
