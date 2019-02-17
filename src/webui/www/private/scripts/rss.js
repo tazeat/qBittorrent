@@ -18,7 +18,7 @@
    </div>\
 </div>'
 
-    var button = new Element("a", { html: "<img class='mochaToolButton' title='RSS Rules' src='images/qbt-theme/rss-config.svg' alt='RSS Rules' width='24' height='24'/>" });
+    var button = new Element("a", { html: "<img class='mochaToolButton' title='RSS Rules' src='images/qbt-theme/rss-config.png' alt='RSS Rules' width='24' height='24'/>" });
     button.setAttribute("data-bind", "click: showRss");
     button.setAttribute("class", "divider")
 
