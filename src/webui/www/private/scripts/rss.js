@@ -1,6 +1,6 @@
 (function () {
     var modalTemplate =
-        '<div data-bind="tabs: [new ko.tab(\'Auto download\', \'rules-template\', rules), new ko.tab(\'Feeds\', \'feeds-template\', {})]"></div>\
+        '<div data-bind="tabs: [new ko.tab(\'Auto download\', \'rules-template\', rules), new ko.tab(\'Feeds\', \'feeds-template\', feeds)]"></div>\
  <script id="rules-template" type="text/html">\
    <select data-name="rules"></select>\
    <button data-name="addRule">Add</button>\
@@ -20,9 +20,12 @@
    </div>\
 </script>\
 <script id="feeds-template" type="text/html">\
-bajs\
+    <div data-bind="foreach: feeds">\
+        <h2><!--ko text: name --><!--/ko--><a data-bind="click: downloadSelected, visible: anySelected" style="float:right;"><img class="MyMenuIcon" alt="Add Torrent Link..." src="images/qbt-theme/insert-link.svg" width="32" height="32"></a></h2>\
+        <ul data-bind="foreach: torrents"><li><label><input data-bind="checked: selected" type="checkbox"></input> <!--ko text: name --><!--/ko--> </label></li></ul>\
+    </div>\
 </script>';
-        
+    
     var button = new Element("a", { html: "<img class='mochaToolButton' title='RSS Rules' src='images/qbt-theme/rss-config.png' alt='RSS Rules' width='24' height='24'/>" });
     button.setAttribute("data-bind", "click: showRss");
     button.setAttribute("class", "divider");
@@ -30,17 +33,24 @@ bajs\
     var view =  new Element("div",  { html: "<div><div data-name='modal' data-bind='modal: modal'>" + modalTemplate + "</div></div>"});
 
     var feeds = null;
-    new Request.JSON({
-        url: new URI('api/v2/rss/items'),
-        noCache: true,
-        method: 'get',
-        onFailure: function () {
-            //TODO: error handling
-        },
-        onSuccess: function (response) {
-            feeds = Object.keys(response).map(function (key) { return { name: key, url: response[key] != "" ? response[key] : key }; })
-        }
-    }).send();
+    var feedsUrl = new URI('api/v2/rss/items');
+    feedsUrl.setData('withData', true);
+
+    var loadFeeds = function (callback) {
+        new Request.JSON({
+            url: feedsUrl,
+            noCache: true,
+            method: 'get',
+            onFailure: function () {
+                //TODO: error handling
+            },
+            onSuccess: function (response) {
+                feeds = Object.keys(response).map(function (key) { return { name: key, data: response[key] }; })
+                if (callback) callback(feeds);
+            }
+        }).send();
+    }
+    loadFeeds();
 
     window.addEvent('domready', function() {
         button.inject("preferencesButton", "after");
@@ -62,6 +72,24 @@ bajs\
     
     var RssModel = function () {
         this.rules = new RssRuleModel();
+        this.feeds = new FeedsModel();
+    };
+
+    var FeedsModel = function() {
+        this.feeds = ko.observable(feeds.map(function(f) { return new FeedDownloadsModel(f); }));
+    };
+
+    var FeedDownloadsModel = function(feed) {
+        this.name = feed.name;
+        this.torrents = feed.data.articles.map(a => new Torrent(a))
+        this.anySelected = ko.computed(() => this.torrents.find(t => t.selected()) != null)
+    };
+
+    FeedDownloadsModel.prototype = {
+        downloadSelected: function() {
+            var urls = this.torrents.filter(t => t.selected()).map(t => encodeURIComponent(t.downloadLink));
+            showDownloadPage(urls);
+        }
     };
 
     var RssRuleModel = function () {
@@ -123,7 +151,7 @@ bajs\
         this.mustNotContain = data.mustNotContain;
         this.savePath = ko.observable(data.savePath);
         this.ignoreDays = data.ignoreDays;
-        this.feeds = feeds.map(function (f) { return new Feed(f, data.affectedFeeds.indexOf(f.url.url) >= 0) });
+        this.feeds = feeds.map(function (f) { return new Feed(f, data.affectedFeeds.indexOf(f.data.url) >= 0) });
 
         this.data = data;
         this.selectedPath = ko.observable(data.savePath);
@@ -169,10 +197,16 @@ bajs\
         }
     };
 
-    var Feed = function (data, enabled) {
-        this.name = data.name;
-        this.url = data.url.url;
-        this.id = data.url.uid;
+    var Torrent = function(data) {
+        this.selected = ko.observable();
+        this.name = data.title;
+        this.downloadLink = data.torrentURL;
+    }
+
+    var Feed = function (feed, enabled) {
+        this.name = feed.name;
+        this.url = feed.data.url;
+        this.id = feed.data.uid;
         this.enabled = enabled;
     };
 
@@ -225,7 +259,7 @@ bajs\
     var tabsModel = function(tabs) {
         this.tabs = tabs;
         this.select(tabs[0]);
-        this.bajs = "bajs";
+
     };
 
     tabsModel.prototype = {
