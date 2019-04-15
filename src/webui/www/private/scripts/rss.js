@@ -1,5 +1,7 @@
 (function () {
-    var modalTemplate = '<div>\
+    var modalTemplate =
+        '<div data-bind="tabs: [new ko.tab(\'Auto download\', \'rules-template\', rules), new ko.tab(\'Feeds\', \'feeds-template\', {})]"></div>\
+ <script id="rules-template" type="text/html">\
    <select data-name="rules"></select>\
    <button data-name="addRule">Add</button>\
    <button data-name="deleteSelectedRule">Delete</button>\
@@ -16,13 +18,16 @@
       </div>\
       <button data-name="save">Save</button>\
    </div>\
-</div>'
-
+</script>\
+<script id="feeds-template" type="text/html">\
+bajs\
+</script>';
+        
     var button = new Element("a", { html: "<img class='mochaToolButton' title='RSS Rules' src='images/qbt-theme/rss-config.png' alt='RSS Rules' width='24' height='24'/>" });
     button.setAttribute("data-bind", "click: showRss");
-    button.setAttribute("class", "divider")
+    button.setAttribute("class", "divider");
 
-    var view =  new Element("div",  { html: "<div><div data-name='modal' data-bind='modal: modal'>" + modalTemplate + "</div></div>"})
+    var view =  new Element("div",  { html: "<div><div data-name='modal' data-bind='modal: modal'>" + modalTemplate + "</div></div>"});
 
     var feeds = null;
     new Request.JSON({
@@ -54,17 +59,21 @@
             }
         }
     };
-
+    
     var RssModel = function () {
+        this.rules = new RssRuleModel();
+    };
+
+    var RssRuleModel = function () {
         this.rules = ko.observableArray();
         this.selectedRule = ko.observable();
 
         this.listRules();
         this.canDeleteSelectedRule = ko.computed(function () { return this.selectedRule() != null }, this);
         this.days = [...Array(14).keys()];
-    };
+    }
 
-    RssModel.prototype = {
+    RssRuleModel.prototype = {
         listRules: function () {
             var url = new URI('api/v2/rss/rules');
             var request = new Request.JSON({
@@ -104,6 +113,8 @@
 
         }
     };
+
+
 
     var Rule = function (name, data) {
         this.name = ko.observable(name);
@@ -168,7 +179,7 @@
 
     var orgOptionsApply = ko.bindingConventions.conventionBinders.options.apply;
     ko.bindingConventions.conventionBinders.options.apply = function (name, element, bindings, options, type, data, viewModel) {
-        orgOptionsApply(name, element, bindings, options, type, data, viewModel)
+        orgOptionsApply(name, element, bindings, options, type, data, viewModel);
 
         if (options.length === 0 || options[0]["name"]) {
             bindings.optionsText = function () { return "name"; };
@@ -176,30 +187,84 @@
     };
 
     ko.bindingHandlers.modal = {
-        init: function (element, valueAccessor) {
-            valueAccessor().subscribe(function (value) {
+        init: function(element, valueAccessor) {
+            valueAccessor().subscribe(function(value) {
                 if (value) {
-                    setTimeout(function () {
-                        new MochaUI.Window({
-                            title: "RSS auto download",
-                            content: element,
-                            storeOnClose: true,
-                            addClass: 'windowFrame', // fixes iframe scrolling on iOS Safari
-                            scrollbars: true,
-                            maximizable: false,
-                            closable: true,
-                            paddingVertical: 0,
-                            paddingHorizontal: 0,
-                            width: 512,
-                            height: 256,
-                            onClose: function () {
-                                valueAccessor()(null);
-                            }
-                        });
-                    }, 0);
+                    setTimeout(function() {
+                            new MochaUI.Window({
+                                title: "RSS",
+                                content: element,
+                                storeOnClose: true,
+                                addClass: 'windowFrame', // fixes iframe scrolling on iOS Safari
+                                scrollbars: true,
+                                maximizable: false,
+                                closable: true,
+                                paddingVertical: 0,
+                                paddingHorizontal: 0,
+                                width: 512,
+                                height: 256,
+                                onClose: function() {
+                                    valueAccessor()(null);
+                                }
+                            });
+                        },
+                        0);
                 }
             });
 
         }
-    }
+    };
+
+    ko.tab = function(caption, template, model) {
+        this.caption = caption;
+        this.template = template;
+        this.model = model;
+        this.selected = ko.observable();
+    };
+
+    var tabsModel = function(tabs) {
+        this.tabs = tabs;
+        this.select(tabs[0]);
+        this.bajs = "bajs";
+    };
+
+    tabsModel.prototype = {
+        select: function (tab) {
+            this.tabs.forEach(t => t.selected(false));
+            tab.selected(true);
+        }
+    };
+
+    ko.bindingHandlers.tabs = {
+        init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var model = valueAccessor();
+            ko.renderTemplate(tabsTemplate, bindingContext.createChildContext(new tabsModel(model)), { templateEngine: stringTemplateEngine }, element, "replaceChildren");
+            MochaUI.initializeTabs(element.querySelector("ul"));
+            return { controlsDescendantBindings: true };
+        }
+    };
+
+    var stringTemplateSource = function (template) {
+        this.template = template;
+    };
+
+    stringTemplateSource.prototype.text = function () {
+        return this.template;
+    };
+
+    var stringTemplateEngine = new ko.nativeTemplateEngine();
+    stringTemplateEngine.makeTemplateSource = function (template) {
+        return new stringTemplateSource(template);
+    };
+
+
+    var tabsTemplate = '<div class="toolbarTabs">\
+        <ul class="tab-menu" data-bind="foreach: tabs">\
+            <li data-bind="css: { selected: selected }"><a data-bind="text: caption, click: $parent.select.bind($parent)"></a></li>\
+        </ul>\
+        <div class="clear"></div>\
+        </div>\
+        <div data-bind="foreach: tabs">\
+            <div data-bind="visible: selected, template: { name: template, data: model }"></div>\
+        </div>';
 })();
