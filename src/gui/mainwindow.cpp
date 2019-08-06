@@ -246,8 +246,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_transferListWidget = new TransferListWidget(hSplitter, this);
     // transferList->setStyleSheet("QTreeView {border: none;}");  // borderless
     m_propertiesWidget = new PropertiesWidget(hSplitter, this, m_transferListWidget);
-    m_transferListFiltersWidget = new TransferListFiltersWidget(m_splitter, m_transferListWidget);
-    m_transferListFiltersWidget->setDownloadTrackerFavicon(isDownloadTrackerFavicon());
+    m_transferListFiltersWidget = new TransferListFiltersWidget(m_splitter, m_transferListWidget, isDownloadTrackerFavicon());
     hSplitter->addWidget(m_transferListWidget);
     hSplitter->addWidget(m_propertiesWidget);
     m_splitter->addWidget(m_transferListFiltersWidget);
@@ -526,7 +525,7 @@ void MainWindow::setTorrentAddedNotificationsEnabled(bool value)
 
 bool MainWindow::isDownloadTrackerFavicon() const
 {
-    return settings()->loadValue(KEY_DOWNLOAD_TRACKER_FAVICON, true).toBool();
+    return settings()->loadValue(KEY_DOWNLOAD_TRACKER_FAVICON, false).toBool();
 }
 
 void MainWindow::setDownloadTrackerFavicon(bool value)
@@ -1159,8 +1158,8 @@ void MainWindow::closeEvent(QCloseEvent *e)
 #else
     const bool goToSystrayOnExit = pref->closeToTray();
     if (!m_forceExit && m_systrayIcon && goToSystrayOnExit && !this->isHidden()) {
-        hide();
-        e->accept();
+        e->ignore();
+        QTimer::singleShot(0, this, &QWidget::hide);
         if (!pref->closeToTrayNotified()) {
             showNotificationBaloon(tr("qBittorrent is closed to tray"), tr("This behavior can be changed in the settings. You won't be reminded again."));
             pref->setCloseToTrayNotified(true);

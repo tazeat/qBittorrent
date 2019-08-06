@@ -214,7 +214,7 @@
     </message>
     <message>
         <source>Set location</source>
-        <translation>Konum ayarla</translation>
+        <translation>Yeri ayarla</translation>
     </message>
     <message>
         <source>Limit upload rate</source>
@@ -293,10 +293,6 @@
         <translation>qBittorrent istemcisine ulaşılamıyor</translation>
     </message>
     <message>
-        <source>qBittorrent has been shutdown.</source>
-        <translation type="vanished">qBittorrent kapatıldı.</translation>
-    </message>
-    <message>
         <source>Global number of upload slots limit must be greater than 0 or disabled.</source>
         <translation>Genel gönderme yuvası sınırı 0'dan büyük olmak ya da etkisizleştirilmek zorundadır.</translation>
     </message>
@@ -334,6 +330,10 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
+        <translation>qBittorrent kapatıldı</translation>
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -401,7 +401,7 @@
     </message>
     <message>
         <source>Resume All</source>
-        <translation>Tümüne Devam Et</translation>
+        <translation>Tümüne Devam</translation>
     </message>
     <message>
         <source>Statistics</source>
@@ -669,7 +669,7 @@
     </message>
     <message>
         <source>(None)</source>
-        <translation>(Hiçbiri)</translation>
+        <translation>(Yok)</translation>
     </message>
     <message>
         <source>SOCKS4</source>
@@ -875,7 +875,7 @@
     </message>
     <message>
         <source>%G: Tags (seperated by comma)</source>
-        <translation>%G: Etiketler (virgülle ayrıldı)</translation>
+        <translation type="vanished">%G: Etiketler (virgülle ayrıldı)</translation>
     </message>
     <message>
         <source>%F: Content path (same as root path for multifile torrent)</source>
@@ -1040,6 +1040,10 @@
     <message>
         <source>When adding a torrent</source>
         <translation>Bir torrent eklerken</translation>
+    </message>
+    <message>
+        <source>%G: Tags (separated by comma)</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -1957,7 +1961,7 @@
     </message>
     <message>
         <source>Set location</source>
-        <translation>Konum ayarla</translation>
+        <translation>Yeri ayarla</translation>
     </message>
     <message>
         <source>Force reannounce</source>

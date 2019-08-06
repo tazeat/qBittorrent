@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Torrent Management Mode:</source>
-        <translation type="unfinished" />
+        <translation>Torento tvarkymo veiksena:</translation>
     </message>
 </context>
 <context>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>Unable to save program preferences, qBittorrent is probably unreachable.</source>
-        <translation>Nepavyko išsaugoti programos nuostatų, qBittorrent tikriausiai yra nepasiekiamas.</translation>
+        <translation>Nepavyko išsaugoti programos nuostatų, qBittorrent tikriausiai yra nepasiekiama.</translation>
     </message>
     <message>
         <source>IRC: #qbittorrent on Freenode</source>
@@ -293,16 +293,12 @@
         <translation>qBittorrent klientas nepasiekiamas</translation>
     </message>
     <message>
-        <source>qBittorrent has been shutdown.</source>
-        <translation type="vanished">qBittorrent buvo išjungtas.</translation>
-    </message>
-    <message>
         <source>Global number of upload slots limit must be greater than 0 or disabled.</source>
-        <translation type="unfinished" />
+        <translation>Visuotinis išsiuntimo lizdų apribojimo skaičius privalo būti didesnis už 0 arba išjungtas.</translation>
     </message>
     <message>
         <source>Invalid category name:\nPlease do not use any special characters in the category name.</source>
-        <translation type="unfinished" />
+        <translation>Neteisingas kategorijos pavadinimas:\nPrašome kategorijos pavadinime nenaudoti jokių specialių simbolių.</translation>
     </message>
     <message>
         <source>Unable to create category</source>
@@ -310,11 +306,11 @@
     </message>
     <message>
         <source>Upload rate threshold must be greater than 0.</source>
-        <translation type="unfinished" />
+        <translation>Išsiuntimo greičio slenkstis privalo būti didesnis už 0.</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished" />
+        <translation>Taisyti</translation>
     </message>
     <message>
         <source>Free space: %1</source>
@@ -322,18 +318,22 @@
     </message>
     <message>
         <source>Torrent inactivity timer must be greater than 0.</source>
-        <translation type="unfinished" />
+        <translation>Torento neveiklumo laikmatis privalo būti didesnis už 0.</translation>
     </message>
     <message>
         <source>Saving Management</source>
-        <translation type="unfinished" />
+        <translation>Išsaugojimo tvarkymas</translation>
     </message>
     <message>
         <source>Download rate threshold must be greater than 0.</source>
-        <translation type="unfinished" />
+        <translation>Atsiuntimo greičio slenkstis privalo būti didesnis už 0.</translation>
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
+        <translation>qBittorrent išjungta</translation>
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -341,7 +341,7 @@
     <name>MainWindow</name>
     <message>
         <source>Edit</source>
-        <translation>Redaguoti</translation>
+        <translation>Taisyti</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -470,11 +470,11 @@
     </message>
     <message>
         <source>Filter torrent list...</source>
-        <translation type="unfinished" />
+        <translation>Filtruoti torentų sąrašą...</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished" />
+        <translation>Paieška</translation>
     </message>
     <message>
         <source>Transfers</source>
@@ -875,7 +875,7 @@
     </message>
     <message>
         <source>%G: Tags (seperated by comma)</source>
-        <translation>%G: Žymės (atskirtos kableliais)</translation>
+        <translation type="vanished">%G: Žymės (atskirtos kableliais)</translation>
     </message>
     <message>
         <source>%F: Content path (same as root path for multifile torrent)</source>
@@ -935,7 +935,7 @@
     </message>
     <message>
         <source>Delete .torrent files afterwards</source>
-        <translation type="unfinished" />
+        <translation>Po to ištrinti .torrent failus</translation>
     </message>
     <message>
         <source>Download rate threshold:</source>
@@ -947,11 +947,11 @@
     </message>
     <message>
         <source>Change current password</source>
-        <translation type="unfinished" />
+        <translation>Keisti dabartinį slaptažodį</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished" />
+        <translation>Automatinė</translation>
     </message>
     <message>
         <source>Use alternative Web UI</source>
@@ -959,15 +959,15 @@
     </message>
     <message>
         <source>Default Save Path:</source>
-        <translation type="unfinished" />
+        <translation>Numatytasis išsaugojimo kelias:</translation>
     </message>
     <message>
         <source>The alternative Web UI files location cannot be blank.</source>
-        <translation type="unfinished" />
+        <translation>Alternatyvi tinklo sąsajos failų vieta negali būti tuščia.</translation>
     </message>
     <message>
         <source>Do not start the download automatically</source>
-        <translation type="unfinished" />
+        <translation>Nepradėti atsiuntimų automatiškai</translation>
     </message>
     <message>
         <source>Switch torrent to Manual Mode</source>
@@ -975,11 +975,11 @@
     </message>
     <message>
         <source>When Torrent Category changed:</source>
-        <translation type="unfinished" />
+        <translation>Kai pasikeičia torento kategorija:</translation>
     </message>
     <message>
         <source>Relocate affected torrents</source>
-        <translation type="unfinished" />
+        <translation>Perkelti paveiktus torentus</translation>
     </message>
     <message>
         <source>Apply rate limit to peers on LAN</source>
@@ -987,19 +987,19 @@
     </message>
     <message>
         <source>0 means unlimited</source>
-        <translation type="unfinished" />
+        <translation>0 reiškia neribotai</translation>
     </message>
     <message>
         <source>Relocate torrent</source>
-        <translation type="unfinished" />
+        <translation>Perkelti torentą</translation>
     </message>
     <message>
         <source>When Default Save Path changed:</source>
-        <translation type="unfinished" />
+        <translation>Kai pasikeičia numatytasis išsaugojimo kelias:</translation>
     </message>
     <message>
         <source>Enable Host header validation</source>
-        <translation type="unfinished" />
+        <translation>Įjungti serverio antraštės patvirtinimą</translation>
     </message>
     <message>
         <source>Security</source>
@@ -1007,11 +1007,11 @@
     </message>
     <message>
         <source>When Category Save Path changed:</source>
-        <translation type="unfinished" />
+        <translation>Kai pasikeičia kategorijos išsaugojimo kelias:</translation>
     </message>
     <message>
         <source>Create subfolder for torrents with multiple files</source>
-        <translation type="unfinished" />
+        <translation>Torentams su keliais failais kurti poaplankį</translation>
     </message>
     <message>
         <source>seconds</source>
@@ -1027,7 +1027,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished" />
+        <translation>Rankinė</translation>
     </message>
     <message>
         <source>Torrent inactivity timer:</source>
@@ -1039,6 +1039,10 @@
     </message>
     <message>
         <source>When adding a torrent</source>
+        <translation>Pridedant torentą</translation>
+    </message>
+    <message>
+        <source>%G: Tags (separated by comma)</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1251,7 +1255,7 @@
     </message>
     <message>
         <source>Save Path:</source>
-        <translation>Atsiuntimo vieta:</translation>
+        <translation>Išsaugojimo kelias:</translation>
     </message>
     <message>
         <source>Never</source>
@@ -1283,7 +1287,7 @@
     </message>
     <message>
         <source>Download limit:</source>
-        <translation type="unfinished" />
+        <translation>Atsiuntimo riba:</translation>
     </message>
     <message>
         <source>Upload limit:</source>
@@ -1340,19 +1344,19 @@
     </message>
     <message>
         <source>Connected peers:</source>
-        <translation type="unfinished" />
+        <translation>Prisijungusių siuntėjų:</translation>
     </message>
     <message>
         <source>All-time share ratio:</source>
-        <translation type="unfinished" />
+        <translation>Viso laikotarpio dalijimosi santykis:</translation>
     </message>
     <message>
         <source>All-time download:</source>
-        <translation type="unfinished" />
+        <translation>Viso laikotarpio atsiuntimas:</translation>
     </message>
     <message>
         <source>Session waste:</source>
-        <translation type="unfinished" />
+        <translation>Iššvaistyta per seansą:</translation>
     </message>
     <message>
         <source>All-time upload:</source>
@@ -1658,7 +1662,7 @@
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="unfinished" />
+        <translation>Atsiųsta</translation>
     </message>
     <message>
         <source>Tracker URL:</source>
@@ -1670,7 +1674,7 @@
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished" />
+        <translation>Veikia</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1706,15 +1710,15 @@
     </message>
     <message>
         <source>Edit tracker URL...</source>
-        <translation type="unfinished" />
+        <translation>Taisyti seklio URL...</translation>
     </message>
     <message>
         <source>Tracker editing</source>
-        <translation type="unfinished" />
+        <translation>Seklio taisymas</translation>
     </message>
     <message>
         <source>Leeches</source>
-        <translation type="unfinished" />
+        <translation>Siunčia</translation>
     </message>
     <message>
         <source>Remove tracker</source>
@@ -1745,11 +1749,11 @@
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished" />
+        <translation>Pristabdyti</translation>
     </message>
     <message>
         <source>Completed</source>
-        <translation type="unfinished" />
+        <translation>Užbaigta</translation>
     </message>
     <message>
         <source>Moving</source>
@@ -1757,7 +1761,7 @@
     </message>
     <message>
         <source>[F] Seeding</source>
-        <translation type="unfinished" />
+        <translation>[F] Skleidžiama</translation>
     </message>
     <message>
         <source>Seeding</source>
@@ -1765,7 +1769,7 @@
     </message>
     <message>
         <source>Queued</source>
-        <translation type="unfinished" />
+        <translation>Eilėje</translation>
     </message>
     <message>
         <source>Errored</source>
@@ -1797,11 +1801,11 @@
     </message>
     <message>
         <source>Checking resume data</source>
-        <translation type="unfinished" />
+        <translation>Tikrinami pratęsimo duomenys</translation>
     </message>
     <message>
         <source>Stalled</source>
-        <translation type="unfinished" />
+        <translation>Laukiama</translation>
     </message>
 </context>
 <context>
@@ -1941,15 +1945,15 @@
     </message>
     <message>
         <source>Force Recheck</source>
-        <translation type="unfinished" />
+        <translation>Priverstinai pertikrinti</translation>
     </message>
     <message>
         <source>New Category</source>
-        <translation type="unfinished" />
+        <translation>Nauja kategorija</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished" />
+        <translation>Vieta</translation>
     </message>
     <message>
         <source>New name</source>
@@ -1961,15 +1965,15 @@
     </message>
     <message>
         <source>Force reannounce</source>
-        <translation type="unfinished" />
+        <translation>Priverstinai siųsti atnaujinimus</translation>
     </message>
     <message>
         <source>Edit Category</source>
-        <translation type="unfinished" />
+        <translation>Taisyti kategoriją</translation>
     </message>
     <message>
         <source>Save path</source>
-        <translation type="unfinished" />
+        <translation>Išsaugojimo kelias</translation>
     </message>
 </context>
 <context>
@@ -2045,7 +2049,7 @@
     </message>
     <message>
         <source>Add Torrent Links</source>
-        <translation type="unfinished" />
+        <translation>Pridėti torentų nuorodas</translation>
     </message>
 </context>
 <context>
@@ -2120,7 +2124,7 @@
     <name>TorrentsController</name>
     <message>
         <source>Save path is empty</source>
-        <translation type="unfinished" />
+        <translation>Išsaugojimo kelias yra tuščias</translation>
     </message>
 </context>
 <context>
@@ -2131,15 +2135,15 @@
     </message>
     <message>
         <source>Plugin path:</source>
-        <translation type="unfinished" />
+        <translation>Papildinio kelias:</translation>
     </message>
     <message>
         <source>URL or local directory</source>
-        <translation type="unfinished" />
+        <translation>URL arba vietinis katalogas</translation>
     </message>
     <message>
         <source>Install plugin</source>
-        <translation type="unfinished" />
+        <translation>Įdiegti papildinį</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -2150,11 +2154,11 @@
     <name>SearchEngineWidget</name>
     <message>
         <source>Seeds:</source>
-        <translation type="unfinished" />
+        <translation>Skleidėjai:</translation>
     </message>
     <message>
         <source>All plugins</source>
-        <translation type="unfinished" />
+        <translation>Visi papildiniai</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -2166,7 +2170,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished" />
+        <translation>Paieška</translation>
     </message>
     <message>
         <source>Search plugins...</source>
@@ -2182,15 +2186,15 @@
     </message>
     <message>
         <source>Copy description page URL</source>
-        <translation type="unfinished" />
+        <translation>Kopijuoti aprašo puslapio URL</translation>
     </message>
     <message>
         <source>Go to description page</source>
-        <translation type="unfinished" />
+        <translation>Eiti į aprašo puslapį</translation>
     </message>
     <message>
         <source>Results (showing</source>
-        <translation type="unfinished" />
+        <translation>Rezultatai (rodoma</translation>
     </message>
     <message>
         <source>Download</source>
@@ -2198,23 +2202,23 @@
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished" />
+        <translation>Filtras</translation>
     </message>
     <message>
         <source>Torrent names only</source>
-        <translation type="unfinished" />
+        <translation>Tik torentų pavadinimuose</translation>
     </message>
     <message>
         <source>Only enabled</source>
-        <translation type="unfinished" />
+        <translation>Tik įjungti</translation>
     </message>
     <message>
         <source>out of</source>
-        <translation type="unfinished" />
+        <translation>iš</translation>
     </message>
     <message>
         <source>Everywhere</source>
-        <translation type="unfinished" />
+        <translation>Visur</translation>
     </message>
 </context>
 <context>
@@ -2229,7 +2233,7 @@
     </message>
     <message>
         <source>You can get new search engine plugins here:</source>
-        <translation type="unfinished" />
+        <translation>Naujus paieškos sistemų papildinius galite gauti čia:</translation>
     </message>
     <message>
         <source>Close</source>
@@ -2260,7 +2264,7 @@
     <name>SearchResultsTable</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>Pavadinimas</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2283,7 +2287,7 @@
     <name>SearchPluginsTable</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>Pavadinimas</translation>
     </message>
     <message>
         <source>Url</source>

@@ -293,10 +293,6 @@
         <translation>Клиент qBittorrent недоступен</translation>
     </message>
     <message>
-        <source>qBittorrent has been shutdown.</source>
-        <translation type="vanished">qBittorrent был выключен.</translation>
-    </message>
-    <message>
         <source>Global number of upload slots limit must be greater than 0 or disabled.</source>
         <translation>Общее ограничение соотношения отдачи должно быть больше 0 или отключено.</translation>
     </message>
@@ -334,6 +330,10 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
+        <translation>qBittorrent выключен</translation>
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -462,7 +462,7 @@
     </message>
     <message>
         <source>Alternative speed limits</source>
-        <translation>Альтернативные ограничения скорости</translation>
+        <translation>Другие ограничения скорости</translation>
     </message>
     <message>
         <source>Search Engine</source>
@@ -470,7 +470,7 @@
     </message>
     <message>
         <source>Filter torrent list...</source>
-        <translation>Фильтровать список торрентов…</translation>
+        <translation>Фильтр торрентов…</translation>
     </message>
     <message>
         <source>Search</source>
@@ -478,7 +478,7 @@
     </message>
     <message>
         <source>Transfers</source>
-        <translation>Передачи</translation>
+        <translation>Торренты</translation>
     </message>
 </context>
 <context>
@@ -517,7 +517,7 @@
     </message>
     <message>
         <source>Email notification upon download completion</source>
-        <translation>Сообщать об окончании загрузки по почте</translation>
+        <translation>Оповещать об окончании загрузки по почте</translation>
     </message>
     <message>
         <source>Run external program on torrent completion</source>
@@ -617,7 +617,7 @@
     </message>
     <message>
         <source>Enabled protocol:</source>
-        <translation>Задействовать протокол:</translation>
+        <translation>Используемый протокол:</translation>
     </message>
     <message>
         <source>TCP and μTP</source>
@@ -875,7 +875,7 @@
     </message>
     <message>
         <source>%G: Tags (seperated by comma)</source>
-        <translation>%G: Метки (разделённые запятыми)</translation>
+        <translation type="vanished">%G: Метки (разделённые запятыми)</translation>
     </message>
     <message>
         <source>%F: Content path (same as root path for multifile torrent)</source>
@@ -1040,6 +1040,10 @@
     <message>
         <source>When adding a torrent</source>
         <translation>При добавлении торрента</translation>
+    </message>
+    <message>
+        <source>%G: Tags (separated by comma)</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2045,7 +2049,7 @@
     </message>
     <message>
         <source>Add Torrent Links</source>
-        <translation>Добавить ссылки на торрент</translation>
+        <translation>Добавить ссылки на торренты</translation>
     </message>
 </context>
 <context>
@@ -2194,7 +2198,7 @@
     </message>
     <message>
         <source>Download</source>
-        <translation>Скачать</translation>
+        <translation>Загрузить</translation>
     </message>
     <message>
         <source>Filter</source>
